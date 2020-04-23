@@ -28,7 +28,7 @@ export class CategoryComponent implements OnInit {
       id: 4,
       categoryName: "Vehicle"
 
-    },
+    }
 
   ]
   ngOnInit(): void {
