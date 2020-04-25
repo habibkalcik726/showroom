@@ -16,8 +16,8 @@
     
 
 
-    <div *ngFor="let item of products | productFilter:filterText" class="card" style="width: 18rem;">
-        <img [src]="item.imageUrl" class="card-img-top" alt="...">
+    <div *ngFor="let item of products | productFilter:filterText" class="card shopcard">
+        <img [src]="item.imageUrl" class="card-img-top " alt="...">
         <div class="card-body">
             <h5 class="card-title"> {{item.productname | lowercase}}  {{item.price | currency}}</h5>
             <p class="card-text">{{item.description | lowercase}}</p>

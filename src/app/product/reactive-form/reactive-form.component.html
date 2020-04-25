@@ -1,0 +1,53 @@
+<h3>Create Product with Reactive-Form</h3>
+<form [formGroup]="addProductForm" (ngSubmit)="CreateProduct()">
+    <div class="form-group">
+        <input type="text" id="productname" name="productname" class="form-control" formControlName="productname"
+            placeholder="Product Name">
+        <div class="alert alert-danger"
+            *ngIf="addProductForm.get('productname').hasError('required')&&addProductForm.get('productname').dirty">
+            Product Name is Required</div>
+
+    </div>
+
+
+    <div class="form-group">
+        <input type="text" id="price" name="price" formControlName="price" class="form-control" placeholder="price">
+        <div class="alert alert-danger"
+            *ngIf="addProductForm.get('price').hasError('required')&&addProductForm.get('price').dirty"> price is
+            Required</div>
+
+    </div>
+    <div class="form-group">
+        <input type="text" id="description" name="description" formControlName="description" class="form-control"
+            placeholder="description">
+        <div class="alert alert-danger"
+            *ngIf="addProductForm.get('description').hasError('description')&&addProductForm.get('description').dirty">
+            description is
+            Required</div>
+
+    </div>
+    <div class="form-group">
+        <input type="text" id="imageUrl" name="imageUrl" formControlName="imageUrl" class="form-control"
+            placeholder="imageUrl">
+        <div class="alert alert-danger"
+            *ngIf="addProductForm.get('imageUrl').hasError('required')&&addProductForm.get('imageUrl').dirty"> Image Url
+            is
+            Required</div>
+
+    </div>
+    <div class="form-group">
+        <select class="form-control" formControlName="categoryId" name="categoryId"
+            id="categoryId" required>
+            <option *ngFor="let item of categories" [value]="item.id">
+                {{item.categoryName}}
+            </option>
+        </select>
+        <div class="alert alert-danger"
+            *ngIf="addProductForm.get('categoryId').hasError('required')&&addProductForm.get('categoryId').touched">
+            Category is
+            Required</div>
+
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="addProductForm.invalid"> Submit</button>
+
+</form>

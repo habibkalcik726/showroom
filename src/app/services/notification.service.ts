@@ -4,7 +4,7 @@ declare let alertify:any;
 
 @Injectable(
  
- // {  providedIn: 'root'} servisin global olması istendiğinde açılır.
+ {  providedIn: 'root'}// servisin global olması istendiğinde açılır.
 )
 export class NotificationService {
 

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,8 @@ import { NavComponent } from './nav/nav.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductFilterPipe } from './product/product-filter.pipe';
 import { NotificationService } from './services/notification.service';
+import { FormAddNewproductComponent } from './product/form-add-newproduct/form-add-newproduct.component';
+import { ReactiveFormComponent } from './product/reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -18,12 +20,15 @@ import { NotificationService } from './services/notification.service';
     ProductComponent,
     NavComponent,
     CategoryComponent,
-    ProductFilterPipe
+    ProductFilterPipe,
+    FormAddNewproductComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],//NotificationService: servisin global olması için providersin içine

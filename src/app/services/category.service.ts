@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../product/product';
+import { Category } from '../Category/category';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
-@Injectable()
-export class ProductService {
+@Injectable({  providedIn: 'root'})
+export class CategoryService {
 
   constructor(private httpClient: HttpClient) { }
 
 
 
-  path = "http://localhost:3000/products";
-  GetProducts(categoryId): Observable<Product[]> {
-    let newpath = this.path;
-    if (categoryId)
-      newpath += "?categoryId=" + categoryId;
+  GetCategories(): Observable<Category[]> {
 
-    return this.httpClient.get<Product[]>(newpath)
+    return this.httpClient.get<Category[]>("http://localhost:3000/categories")
       .pipe(tap(data => {
         console.log(data);
 
@@ -26,22 +22,12 @@ export class ProductService {
 
   }
 
-  AddProduct(product: Product): Observable<Product> {
-
-    return this.httpClient.post<Product>(this.path, product).pipe(tap(data => {
-      console.log(data);
-
-    }),
-      catchError(this.ProcessError));
-  }
-
   ProcessError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent)
       errorMessage = "Exception: " + err.error.message;
     else
       errorMessage = "System Exception!";
-    return throwError(errorMessage);
+    return throwError( errorMessage);
   }
-
 }
