@@ -3,11 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent } from './product/product.component';
 import { FormAddNewproductComponent } from './product/form-add-newproduct/form-add-newproduct.component';
 import { ReactiveFormComponent } from './product/reactive-form/reactive-form.component';
+import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login/login.guard';
 
 
 const routes: Routes = [
   { path: "products", component: ProductComponent },
-  { path: "form-add-new-product", component: FormAddNewproductComponent },
+  { path: "login", component: LoginComponent },
+  { path: "form-add-new-product", component: FormAddNewproductComponent, canActivate:[LoginGuard]},
   { path: "reactive-form-add-new-product", component: ReactiveFormComponent },
 
   { path: '', redirectTo: 'products', pathMatch: 'full' },

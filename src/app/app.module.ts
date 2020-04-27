@@ -12,6 +12,8 @@ import { ProductFilterPipe } from './product/product-filter.pipe';
 import { NotificationService } from './services/notification.service';
 import { FormAddNewproductComponent } from './product/form-add-newproduct/form-add-newproduct.component';
 import { ReactiveFormComponent } from './product/reactive-form/reactive-form.component';
+import { LoginComponent } from './login/login.component';
+import { AccountService } from './services/account.service';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { ReactiveFormComponent } from './product/reactive-form/reactive-form.com
     CategoryComponent,
     ProductFilterPipe,
     FormAddNewproductComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { ReactiveFormComponent } from './product/reactive-form/reactive-form.com
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],//NotificationService: servisin global olması için providersin içine
+  providers: [AccountService],//NotificationService: servisin global olması için providersin içine
   // alınması yada servisin tanımlandığı yerde ProviderIn:root şeklinde tanımlanması gerekmektedir.
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,24 @@
+<h3> Login </h3>
+<form [formGroup]="userLoginForm" (ngSubmit)="Login()">
+    <div class="form-group">
+        <input type="text" id="username" name="username" class="form-control" formControlName="username"
+            placeholder="username">
+        <div class="alert alert-danger"
+            *ngIf="userLoginForm.get('username').hasError('required')&&userLoginForm.get('username').dirty">
+            Username is Required</div>
+
+    </div>
+    <div class="form-group">
+    
+      <input type="password" id="password" placeholder="Password" name="password" class="form-control" formControlName="password"
+     >
+  <div class="alert alert-danger"
+      *ngIf="userLoginForm.get('password').hasError('required')&&userLoginForm.get('password').dirty">
+      Password is Required</div>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
